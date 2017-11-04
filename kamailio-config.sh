@@ -7,7 +7,4 @@ if  [[ !  -z  $DBHOST ]]; then
     cat /usr/local/etc/kamailio/kamctlrc | grep DBHOST= 
 fi 
 
-# Start the service 
-service kamailio restart
-
 exec "$@" 
