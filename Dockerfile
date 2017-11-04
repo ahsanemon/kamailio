@@ -76,11 +76,11 @@ RUN mkdir -p /var/run/kamailio
 RUN adduser --quiet --system --group --disabled-password --shell /bin/false --gecos "Kamailio" --home /var/run/kamailio kamailio 
 RUN chown kamailio:kamailio /var/run/kamailio 
  
-# Start the service 
-##CMD ["/etc/init.d/kamailio","start"] 
-
 COPY kamailio-config.sh / 
 RUN chmod +x /kamailio-config.sh 
 ENTRYPOINT ["/kamailio-config.sh"] 
 
 EXPOSE 5060 
+
+# Start the service 
+CMD ["/etc/init.d/kamailio","start"] 
