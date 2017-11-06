@@ -1,7 +1,10 @@
 FROM ubuntu:16.04 
  
 ENV DBHOST=${DBHOST} 
- 
+ENV SIP_DOMAIN=${SIP_DOMAIN}
+ENV DBROOTUSER=${DBROOTUSER}
+ENV DBROOTPASS=${DBROOTPASS}
+
 # Install the required packages 
 RUN apt-get update && apt-get -y install \ 
 git \ 
@@ -35,7 +38,7 @@ RUN PATH=$PATH:/usr/local/sbin && export PATH
 RUN sed -i 's/# DBENGINE=MYSQL/DBENGINE=MYSQL/g' /usr/local/etc/kamailio/kamctlrc 
  
 # DB access 
-RUN sed -i 's/# DBROOTUSER="root"/DBROOTUSER="root"\nPW="root"/g' /usr/local/etc/kamailio/kamctlrc 
+#RUN sed -i 's/# DBROOTUSER="root"/DBROOTUSER="root"\nPW="root"/g' /usr/local/etc/kamailio/kamctlrc 
 RUN sed -i 's/# DBRWUSER="kamailio"/DBRWUSER="kamailio"/g' /usr/local/etc/kamailio/kamctlrc 
 RUN sed -i 's/# DBRWPW="kamailiorw"/DBRWPW="kamailiorw"/g' /usr/local/etc/kamailio/kamctlrc 
 RUN sed -i 's/# DBROUSER="kamailioro"/DBROUSER="kamailioro"/g' /usr/local/etc/kamailio/kamctlrc 
