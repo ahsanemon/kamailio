@@ -8,7 +8,7 @@ if  [[ !  -z  $DBHOST ]]; then
 fi 
 
 # DB root access
-if  [[ !  -z  $DBHOST ]]; then 
+if  [[ !  -z  $DBROOTUSER -a ! -z $DBROOTPASS ]]; then 
     printf "\nUpdating DB root user and pass...\n" 
     sed -i 's/.*DBROOTUSER=.*/DBROOTUSER="$DBROOTUSER" \&\& PW="$DBROOTPASS"/g' /usr/local/etc/kamailio/kamctlrc
     cat /usr/local/etc/kamailio/kamctlrc | grep DBROOTUSER= 
