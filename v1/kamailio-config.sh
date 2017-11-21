@@ -29,7 +29,7 @@ if [ "$RESULT" == "$DATABASE" ]; then
 else
    echo "Database $DATABASE does not exist ..."
    echo "Creating Database $DATABASE ..."
-   /usr/local/sbin/kamdbctl create
+   kamdbctl create
    echo "Database $DATABASE created"
 fi
 
