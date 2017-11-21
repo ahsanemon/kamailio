@@ -15,7 +15,7 @@ RUN apt-get update && \
 && rm -rf /var/lib/apt/lists/*
 
 # To use MYSQL as DB
-RUN sed -i 's/# DBENGINE=MYSQL/DBENGINE=MYSQL/g' /usr/local/etc/kamailio/kamctlrc && \
+RUN sed -i 's/# DBENGINE=MYSQL/DBENGINE=MYSQL/g' /etc/kamailio/kamctlrc && \
     sed -i -e '2i#!define WITH_MYSQL\' /etc/kamailio/kamailio.cfg && \
     sed -i -e '3i#!define WITH_AUTH\' /etc/kamailio/kamailio.cfg && \
     sed -i -e '4i#!define WITH_USRLOCDB\' /etc/kamailio/kamailio.cfg
