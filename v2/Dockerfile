@@ -10,7 +10,7 @@ RUN apt-get update && \
     apt-get -y install \
     mysql-client \
     kamailio \
-    kamailio-mysql-modules
+    kamailio-mysql-modules \
     nano \
 && rm -rf /var/lib/apt/lists/*
 
@@ -20,7 +20,7 @@ RUN sed -i 's/# DBENGINE=MYSQL/DBENGINE=MYSQL/g' /usr/local/etc/kamailio/kamctlr
     sed -i -e '3i#!define WITH_AUTH\' /etc/kamailio/kamailio.cfg && \
     sed -i -e '4i#!define WITH_USRLOCDB\' /etc/kamailio/kamailio.cfg
     
-# DB access
+# Changing in DB access parameter
 RUN sed -i 's/# DBACCESSHOST=192.168.0.1/DBACCESSHOST=%/g' /etc/kamailio/kamctlrc && \
     sed -i 's/# DBRWUSER="kamailio"/DBRWUSER="kamailio"/g' /etc/kamailio/kamctlrc && \
     sed -i 's/# DBRWPW="kamailiorw"/DBRWPW="kamailiorw"/g' /etc/kamailio/kamctlrc && \
