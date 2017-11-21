@@ -20,7 +20,7 @@ RUN sed -i 's/# DBENGINE=MYSQL/DBENGINE=MYSQL/g' /etc/kamailio/kamctlrc && \
     sed -i -e '3i#!define WITH_AUTH\' /etc/kamailio/kamailio.cfg && \
     sed -i -e '4i#!define WITH_USRLOCDB\' /etc/kamailio/kamailio.cfg
 
-# DB access
+# Changing in DB access parameter and use init.d script for starting/stoping the Kamailio server
 RUN sed -i 's/# DBRWUSER="kamailio"/DBRWUSER="kamailio"/g' /etc/kamailio/kamctlrc && \
     sed -i 's/# DBRWPW="kamailiorw"/DBRWPW="kamailiorw"/g' /etc/kamailio/kamctlrc && \
     sed -i 's/# DBROUSER="kamailioro"/DBROUSER="kamailioro"/g' /etc/kamailio/kamctlrc && \
@@ -28,7 +28,7 @@ RUN sed -i 's/# DBRWUSER="kamailio"/DBRWUSER="kamailio"/g' /etc/kamailio/kamctlr
     sed -i 's/# INSTALL_EXTRA_TABLES=ask/INSTALL_EXTRA_TABLES=yes/g' /etc/kamailio/kamctlrc && \
     sed -i 's/# INSTALL_DBUID_TABLES=ask/INSTALL_DBUID_TABLES=yes/g' /etc/kamailio/kamctlrc && \
     sed -i 's/# INSTALL_PRESENCE_TABLES=ask/INSTALL_PRESENCE_TABLES=yes/g' /etc/kamailio/kamctlrc && \
-	  sed -i 's/CFGFILE=.*/CFGFILE=\/etc\/kamailio\/kamailio.cfg/g' /etc/init.d/kamailio && \
+    sed -i 's/CFGFILE=.*/CFGFILE=\/etc\/kamailio\/kamailio.cfg/g' /etc/init.d/kamailio && \
     sed -i 's/CFGFILE=\/etc\/$NAME\/kamailio.cfg/CFGFILE=\/usr\/local\/etc\/kamailio\/kamailio.cfg/g' /etc/init.d/kamailio && \
     sed -i 's/#RUN_KAMAILIO=yes/RUN_KAMAILIO=yes/g' /etc/default/kamailio && \
     sed -i 's/#CFGFILE=\/etc\/kamailio\/kamailio.cfg/CFGFILE=\/etc\/kamailio\/kamailio.cfg/g' /etc/default/kamailio && \
