@@ -12,8 +12,16 @@ RUN apt-get update && \
     kamailio \
     kamailio-mysql-modules \
     nano \
-&& rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/*
 
+# Optional, only fr troubleshooting 
+RUN apt-get update && \
+    apt-get -y install \
+    nano \
+    ssh \
+    tcpdump \
+    && rm -rf /var/lib/apt/lists/*
+    
 # To use MYSQL as DB
 RUN sed -i 's/# DBENGINE=MYSQL/DBENGINE=MYSQL/g' /etc/kamailio/kamctlrc && \
     sed -i -e '2i#!define WITH_MYSQL\' /etc/kamailio/kamailio.cfg && \
