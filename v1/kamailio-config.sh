@@ -31,13 +31,13 @@ else
    echo "Creating Database $DATABASE ..."
    kamdbctl create
    echo "Database $DATABASE created"
+
+   # Adding two test user
+   kamctl add bob secretpass
+   kamctl add alice secretpass
 fi
 
 #Starting the kamailio service
 service kamailio restart
-
-# Adding two test user
-kamctl add bob secretpass
-kamctl add alice secretpass
 
 exec "$@"
