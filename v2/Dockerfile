@@ -8,18 +8,17 @@ ENV DBROOTPASS=${DBROOTPASS}
 # Install the required packages
 RUN apt-get update && \
     apt-get -y install \
-    mysql-client \
-    kamailio \
-    kamailio-mysql-modules \
-    nano \
+            mysql-client \
+            kamailio \
+            kamailio-mysql-modules \
     && rm -rf /var/lib/apt/lists/*
 
-# Optional, only fr troubleshooting 
+# Optional, only for troubleshooting 
 RUN apt-get update && \
     apt-get -y install \
-    nano \
-    ssh \
-    tcpdump \
+            nano \
+            ssh \
+            tcpdump \
     && rm -rf /var/lib/apt/lists/*
     
 # To use MYSQL as DB
