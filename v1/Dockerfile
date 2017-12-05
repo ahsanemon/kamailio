@@ -6,10 +6,17 @@ ENV SIP_DOMAIN=${SIP_DOMAIN}
 # Install the required packages 
 RUN apt-get update && \
     apt-get -y install \ 
-    mysql-server \ 
-    kamailio \
-	  kamailio-mysql-modules \
-	  nano \ 
+            mysql-server \ 
+            kamailio \
+	    kamailio-mysql-modules \ 
+    && rm -rf /var/lib/apt/lists/*
+    
+# Optional, only for troubleshooting 
+RUN apt-get update && \
+    apt-get -y install \
+            nano \
+            ssh \
+            tcpdump \
     && rm -rf /var/lib/apt/lists/*
 
 # set 1.MYSQL as DB, 2. DB location as localhost, 3. access the DB from any host, 4-6. authenticte using Mysql
