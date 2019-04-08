@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 
 ENV DEBIAN_FRONTEND noninteractive 
 ENV SIP_DOMAIN=${SIP_DOMAIN}
